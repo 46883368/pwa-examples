@@ -11,5 +11,8 @@
   ],
   "name": "Awesome fox pictures",
   "short_name": "Foxes",
-  "start_url": "/pwa-examples/a2hs/index.html"
+  "start_url": "/pwa-examples/a2hs/index.html",
+  "scope_extensions":[
+   {"type": "origin", "value": "https://horizon-pwa.com"}
+  ]
 }
