@@ -13,6 +13,6 @@
   "short_name": "Foxes",
   "start_url": "/pwa-examples/a2hs/index.html",
   "scope_extensions":[
-   {"origin":"https://horizon-pwa.com"}
+   {"origin":"https://icematte.com/"}
   ]
 }
