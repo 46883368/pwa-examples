@@ -13,6 +13,6 @@
   "short_name": "Foxes",
   "start_url": "index.html",
   "scope_extensions":[
-   {"origin":"https://host.pwa-horizon.com"}
+   {"origin":"https://test.pwa-horizon.com"}
   ]
 }
