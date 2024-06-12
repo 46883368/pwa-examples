@@ -16,6 +16,7 @@ self.addEventListener('fetch', event => {
     // Example of handling cross-origin requests
     console.log(event.request.url+"=================");
     const requestUrl = new URL(event.request.url);
+    console.log(requestUrl.origin+"------------------------");
     if (requestUrl.origin === location.origin || requestUrl.origin === 'https://horizon-pwa.com') {
         event.respondWith(
             caches.match(event.request).then(response => {
