@@ -12,10 +12,17 @@ self.addEventListener('install', (e) => {
     ])),
   );
 });
-
-self.addEventListener('fetch', (e) => {
-  console.log(e.request.url);
-  e.respondWith(
-    caches.match(e.request).then((response) => response || fetch(e.request)),
-  );
+self.addEventListener('fetch', event => {
+    // Example of handling cross-origin requests
+    const requestUrl = new URL(event.request.url);
+    if (requestUrl.origin === location.origin || requestUrl.origin === 'https://horizon-pwa.com') {
+        event.respondWith(
+            caches.match(event.request).then(response => {
+                return response || fetch(event.request);
+            })
+        );
+    } else {
+        // Handle other cross-origin requests
+        event.respondWith(fetch(event.request));
+    }
 });
