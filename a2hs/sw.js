@@ -12,22 +12,10 @@ self.addEventListener('install', (e) => {
     ])),
   );
 });
-self.addEventListener('fetch', event => {
-    // Example of handling cross-origin requests
-    console.log(event.request.url+"=================");
-    const requestUrl = new URL(event.request.url);
-    console.log(requestUrl.origin+"------------------------");
-    if (requestUrl.origin === location.origin || requestUrl.origin === 'https://icematte.com') {
-        event.respondWith(
-            caches.match(event.request).then(response => {
-                return response || fetch(event.request);
-            })
-        );
-    } else {
-        // Handle other cross-origin requests
-        event.respondWith(fetch(event.request));
-    }
-});
-self.addEventListener('activate', event => {
-    console.log('Service Worker activating========================');
+
+self.addEventListener('fetch', (e) => {
+  console.log(e.request.url);
+  e.respondWith(
+    caches.match(e.request).then((response) => response || fetch(e.request)),
+  );
 });
