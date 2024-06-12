@@ -14,6 +14,7 @@ self.addEventListener('install', (e) => {
 });
 self.addEventListener('fetch', event => {
     // Example of handling cross-origin requests
+    print(event.request.url+"=================");
     const requestUrl = new URL(event.request.url);
     if (requestUrl.origin === location.origin || requestUrl.origin === 'https://horizon-pwa.com') {
         event.respondWith(
